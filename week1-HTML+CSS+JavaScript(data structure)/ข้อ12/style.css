@@ -1,0 +1,24 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+.box {
+  margin: 20px;
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.box img{
+  margin: 20px;
+  width: 50%;
+  max-width: 400px;
+  height: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .box img{
+    width: 100%;
+  }
+}
