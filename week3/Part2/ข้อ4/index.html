@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Your position</h1>
+    <p>lat: <span id="lat"></span>,long: <span id="long"></span></p>
+    <hr>
+    <h1>Yout Weather</h1>
+    <p>อุณหภูมิ: <span id="temp"></span> F</p>
+    <p>ความชื้น: <span id="humid"></span> %</p>
+    <script>
+      fetch(
+        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/5b0669fa2b50528e6e0cd5f1c8d81d45/42.3601,-71.0589`
+      )
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("lat").innerHTML = data.latitude
+          document.getElementById("long").innerHTML = data.longitude
+          document.getElementById("temp").innerHTML = data.currently.temperature
+          document.getElementById("humid").innerHTML = data.currently.humidity * 100
+          console.log(data);
+        });
+    </script>
+  </body>
+</html>
